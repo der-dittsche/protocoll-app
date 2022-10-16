@@ -4,6 +4,7 @@ import ViewNotes from "@/views/ViewNotes.vue";
 import ViewStats from "@/views/ViewStats.vue";
 import ViewEditNote from "@/views/ViewEditNote.vue";
 import ViewAuth from "@/views/ViewAuth.vue";
+import ViewProfile from "@/views/ViewAttendeeInfo.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     name: "auth",
     component: ViewAuth,
   },
+  {
+    path: "/profile",
+    name: "profile",
+    component: ViewProfile,
+  },
 ];
 
 const router = createRouter({
@@ -39,7 +45,7 @@ router.beforeEach(async (to, from) => {
     return { name: "auth" };
   }
   if (storeAuth.user.id && to.name !== "auth") {
-    return { name: "notes" };
+    return true;
   }
 });
 

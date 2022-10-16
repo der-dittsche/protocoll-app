@@ -49,6 +49,13 @@
             active-class="is-active"
             >Stats</RouterLink
           >
+          <RouterLink
+            @click="showMobileNav = false"
+            to="/profile"
+            class="navbar-item"
+            active-class="is-active"
+            >Profile</RouterLink
+          >
         </div>
       </div>
     </div>
