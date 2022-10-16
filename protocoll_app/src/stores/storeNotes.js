@@ -11,13 +11,11 @@ import {
   limit,
 } from "firebase/firestore";
 import { db } from "@/stores/firebase.js";
+import { useStoreAuth } from "@/stores/storeAuth.js";
 
-const notesCollectionRef = collection(db, "task-app");
-const notesCollectionQuerry = query(
-  notesCollectionRef,
-  orderBy("date", "desc"),
-  limit(5)
-);
+let notesCollectionRef;
+let notesCollectionQuerry;
+let getNotesSnapshot = null;
 
 export const useStoreNotes = defineStore("storeNotes", {
   state: () => {
@@ -27,9 +25,25 @@ export const useStoreNotes = defineStore("storeNotes", {
     };
   },
   actions: {
+    initUser() {
+      const storeAuth = useStoreAuth();
+
+      notesCollectionRef = collection(
+        db,
+        "task-app",
+        storeAuth.user.id,
+        "notes"
+      );
+      notesCollectionQuerry = query(
+        notesCollectionRef,
+        orderBy("date", "desc"),
+        limit(5)
+      );
+      this.getNotes();
+    },
     async getNotes() {
       this.notesLoaded = false;
-      onSnapshot(notesCollectionQuerry, (querySnapshot) => {
+      getNotesSnapshot = onSnapshot(notesCollectionQuerry, (querySnapshot) => {
         let notes = [];
         querySnapshot.forEach((doc) => {
           let note = {
@@ -63,6 +77,10 @@ export const useStoreNotes = defineStore("storeNotes", {
         username: "Sascha Dietrich",
         show: true,
       });
+    },
+    clearNotes() {
+      this.notes = [];
+      if (getNotesSnapshot) getNotesSnapshot(); // unsubscribe from any listener
     },
   },
   getters: {
