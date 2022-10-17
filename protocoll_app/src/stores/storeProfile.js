@@ -47,7 +47,7 @@ export const useStoreProfile = defineStore("storeProfile", {
               email: doc.data().email,
               githubname: doc.data().githubname,
               classes: doc.data().classes,
-              fulltime: doc.date().fulltime,
+              fulltime: doc.data().fulltime,
             };
             profiles.push(info);
           });

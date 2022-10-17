@@ -3,11 +3,7 @@
     <div class="box">
       Your Profile Informations<br /><br />
       <br /><br />
-      <div
-        v-for="info in storeProfile.profile"
-        :key="storeProfile.id"
-        :profile="profile"
-      >
+      <div v-for="info in storeProfile.profile" :key="storeProfile.id">
         <p>Name: {{ info.name }}</p>
         <p>E-Mail: {{ info.email }}</p>
         <p>Github Name: {{ info.github }}</p>

@@ -37,6 +37,13 @@
         <div class="navbar-end">
           <RouterLink
             @click="showMobileNav = false"
+            to="/roti"
+            class="navbar-item"
+            active-class="is-active"
+            >Roti</RouterLink
+          >
+          <RouterLink
+            @click="showMobileNav = false"
             to="/"
             class="navbar-item"
             active-class="is-active"

@@ -5,6 +5,8 @@ import ViewStats from "@/views/ViewStats.vue";
 import ViewEditNote from "@/views/ViewEditNote.vue";
 import ViewAuth from "@/views/ViewAuth.vue";
 import ViewProfile from "@/views/ViewAttendeeInfo.vue";
+import ViewRoti from "@/views/ViewRoti.vue";
+import ViewAddAttendees from "@/views/ViewAddAttendees.vue";
 
 const routes = [
   {
@@ -31,6 +33,16 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: ViewProfile,
+  },
+  {
+    path: "/roti",
+    name: "roti",
+    component: ViewRoti,
+  },
+  {
+    path: "/addattendee",
+    name: "addattendee",
+    component: ViewAddAttendees,
   },
 ];
 
