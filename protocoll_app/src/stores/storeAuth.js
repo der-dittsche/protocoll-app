@@ -34,7 +34,7 @@ export const useStoreAuth = defineStore("storeAuth", {
           this.router.replace("/auth");
           storeNotes.clearNotes();
           storeProfile.clearProfileInfo();
-          storeProfile.clearAttendees();
+          storeAttendees.clearAttendees();
         }
       });
     },
