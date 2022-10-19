@@ -1,6 +1,6 @@
 describe("Logging In", () => {
-  const username = "sascha@user.de";
-  const password = "Lotta2013!";
+  const username = "//";
+  const password = "//";
 
   it("passes", () => {
     cy.visit("http://localhost:5173");
