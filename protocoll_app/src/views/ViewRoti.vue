@@ -3,11 +3,12 @@
     <div class="block has-text-centered">
       <div class="is-size-3 p-4">Select your class</div>
       <div class="select mb-4">
-        <select class="is-hovered">
-          <option>June 2022</option>
-          <option>July 2022</option>
-          <option>August 2022</option>
-          <option>September 2022</option>
+        <select>
+          <SelectClasses
+            v-for="attendee in storesAttendees.attendees"
+            :key="attendee.id"
+            :attendee="attendee"
+          />
         </select>
       </div>
       <div class="container mb-4">
@@ -59,6 +60,7 @@ import Overview from "@/components/Attendees/Overview.vue";
 import ModalCarusell from "@/components/Attendees/ModalCarusell.vue";
 import Questions from "@/components/Attendees/Questions.vue";
 import ListAttendees from "../components/Attendees/ListAttendees.vue";
+import SelectClasses from "../components/Attendees/SelectClasses.vue";
 
 const storesAttendees = useStoreAttendees();
 </script>
